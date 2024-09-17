@@ -5,7 +5,7 @@ metadata:
   title: Register your software with Roadie Backstage
   description: "Create a new PR with a catalog-info.yaml file with your software's details. Optionally configure additional integrations and TechDocs to be created and associated at time of registration."
 spec:
-  owner: group:roadie-demo/solutions # TODO: Define who the owner of this template is. This is likely the team who own the relationship with Roadie. e.g. group:customer-name/platform
+  owner: group:roadiehq/engineering
   type: service
 
   # These are the steps which are rendered in the frontend with the form input.
@@ -30,14 +30,14 @@ spec:
         type:
           title: Component Type
           type: string
-          default: service # TODO: Add your most common component type here.
-          enum: ['service', 'website', 'test', 'documentation', 'library'] # TODO: What are the types you have?
+          default: service
+          enum: ['service', 'website', 'test', 'documentation', 'library']
 
         lifecycle:
           title: Component Lifecycle
           type: string
-          default: production # TODO: Add your most common lifecycle here.
-          enum: ['production', 'experimental', 'deprecated'] # TODO: What are the lifecycle environments you have?
+          default: production
+          enum: ['production', 'experimental', 'deprecated']
 
         owner:
           title: Component Owner
@@ -46,7 +46,7 @@ spec:
           ui:field: OwnerPicker
           ui:options:
             catalogFilter:
-              kind: Group # TODO: Decide if you want to allow setting owner by user, group, or both. e.g. [Group, User]
+              kind: Group
 
     - title: Component Location # Title of the second step.
       required:
@@ -63,7 +63,7 @@ spec:
           ui:options:
             title: Repository
             description: Choose the repository to be registered in your catalog.
-            path: "proxy/github/api/orgs/roadie-demo/repos" # TODO: Add the name of your GitHub org. e.g. `/orgs/{reporOrg}/repos`
+            path: "proxy/github/api/orgs/roadiehq/repos"
             params:
               per_page: '100'
               page: '{{ parameters.repoPage }}'
@@ -80,7 +80,7 @@ spec:
           ui:field: EntityTagsPicker
 
     - title: Integrations (optional) # Title of the third step.
-      properties: #TODO: Specify any additional integrations associated with your repos.
+      properties:
         argoAppName:
           title: Argo CD App Name
           type: string

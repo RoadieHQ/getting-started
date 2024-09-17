@@ -5,7 +5,7 @@ metadata:
   title: Publish a new standalone TechDocs repository and register with Roadie Backstage
   description: "Publish a new repository with a catalog-info.yaml file with your company's standalone TechDocs details."
 spec:
-  owner: group:roadie-demo/solutions # TODO: Define who the owner of this template is. This is likely the team who own the relationship with Roadie. e.g. group:customer-name/platform
+  owner: group:roadiehq/engineering
   type: service
 
   # These are the steps which are rendered in the frontend with the form input.
@@ -22,18 +22,18 @@ spec:
 
         gitHubOrg:
           type: string
-          default: roadie-demo # TODO: Set your GitHub Org value here.
+          default: roadiehq
           ui:widget: hidden
 
         repoBranch:
           type: string
-          default: main # TODO: Define your expected default branch.
+          default: main
           ui:widget: hidden
 
         name:
           title: Name
           type: string
-          default: company-docs # TODO: Set your default name for the documentation repository here.
+          default: company-docs
 
         description:
           title: Description
@@ -44,8 +44,7 @@ spec:
           title: Lifecycle
           description: The initial lifecycle state of the documentation stand-alone repo.
           type: string
-          default: production # TODO: Add your most common lifecycle state here.
-          enum: ['production', 'development', 'experimental']
+          default: production
 
         owner:
           title: Owner
@@ -54,7 +53,7 @@ spec:
           ui:field: OwnerPicker
           ui:options:
             catalogFilter:
-              kind: Group # TODO: Decide if you want to allow setting owner by user, group, or both. e.g. [Group, User]
+              kind: Group
         
         documentationGrouping:
           title: Documentation Groupings
